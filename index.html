@@ -1,190 +1,734 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>TapBot | Water Awareness Initiative</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4fbff;
-      color: #222;
-      line-height: 1.6;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    header {
-      background-color: #0077b6;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
+<title>TapBot</title>
 
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+<style>
 
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 20px 0;
-      border-left: 6px solid #0077b6;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-    h2 {
-      color: #0077b6;
-      margin-top: 0;
-    }
+body{
+background:#020817;
+color:white;
+overflow-x:hidden;
+}
 
-    ul {
-      padding-left: 20px;
-    }
+/* NAVBAR */
 
-    img {
-      width: 100%;
-      max-width: 500px;
-      display: block;
-      margin: 15px auto;
-      border-radius: 10px;
-    }
+nav{
+width:100%;
+height:90px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 60px;
+background:rgba(2,8,23,0.92);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(0,255,255,0.08);
+position:fixed;
+top:0;
+left:0;
+z-index:1000;
+}
 
-    footer {
-      background-color: #eaf4ff;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-  </style>
+.logo h1{
+font-size:46px;
+font-weight:bold;
+}
+
+.logo p{
+font-size:14px;
+color:#7de7ff;
+margin-top:4px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-size:18px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#57c7ff;
+}
+
+/* HERO */
+
+.hero{
+width:100%;
+min-height:100vh;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:160px 80px 80px 80px;
+gap:60px;
+}
+
+.left{
+width:50%;
+}
+
+.left h2{
+font-size:92px;
+line-height:0.95;
+font-weight:bold;
+}
+
+.gradient{
+background:linear-gradient(90deg,#57c7ff,#00e5ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.line{
+width:130px;
+height:4px;
+background:#57c7ff;
+border-radius:20px;
+margin:30px 0;
+}
+
+.left p{
+font-size:20px;
+line-height:1.9;
+color:#d4d4d4;
+max-width:700px;
+}
+
+/* BUTTONS */
+
+.buttons{
+margin-top:40px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:16px 30px;
+border-radius:50px;
+border:1px solid rgba(87,199,255,0.18);
+background:rgba(255,255,255,0.04);
+color:white;
+font-size:16px;
+backdrop-filter:blur(10px);
+transition:0.3s;
+cursor:pointer;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+border-color:rgba(87,199,255,0.4);
+box-shadow:0 0 25px rgba(87,199,255,0.15);
+}
+
+/* RIGHT */
+
+.right{
+width:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.card{
+width:420px;
+height:420px;
+border-radius:40px;
+
+background:radial-gradient(circle at center,
+rgba(87,199,255,0.18),
+rgba(0,0,0,0.2));
+
+border:1px solid rgba(87,199,255,0.12);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+box-shadow:0 0 70px rgba(87,199,255,0.08);
+
+backdrop-filter:blur(14px);
+}
+
+.card .emoji{
+font-size:120px;
+margin-bottom:20px;
+}
+
+.card h3{
+font-size:54px;
+margin-bottom:15px;
+}
+
+.card p{
+font-size:16px;
+letter-spacing:1px;
+color:#cfefff;
+}
+
+/* SECTION */
+
+section{
+padding:100px 90px;
+}
+
+.section-title{
+font-size:62px;
+margin-bottom:50px;
+}
+
+/* FEATURE GRID */
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
+}
+
+.feature-card{
+padding:35px;
+border-radius:30px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(87,199,255,0.08);
+backdrop-filter:blur(12px);
+transition:0.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-6px);
+border-color:rgba(87,199,255,0.25);
+}
+
+.feature-card h3{
+font-size:30px;
+margin-bottom:18px;
+}
+
+.feature-card p{
+font-size:17px;
+line-height:1.8;
+color:#d4d4d4;
+}
+
+/* ABOUT */
+
+.about-box{
+padding:50px;
+border-radius:35px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(87,199,255,0.08);
+backdrop-filter:blur(12px);
+}
+
+.about-box p{
+font-size:20px;
+line-height:2;
+color:#d4d4d4;
+margin-bottom:25px;
+}
+
+/* CALCULATOR */
+
+.calculator{
+padding:50px;
+border-radius:35px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(87,199,255,0.08);
+backdrop-filter:blur(12px);
+}
+
+input{
+width:100%;
+padding:18px;
+margin-top:18px;
+border:none;
+border-radius:18px;
+background:#0c1428;
+color:white;
+font-size:16px;
+outline:none;
+}
+
+.action-btn{
+margin-top:25px;
+padding:16px 28px;
+border:none;
+border-radius:40px;
+background:linear-gradient(90deg,#57c7ff,#00e5ff);
+color:white;
+font-size:17px;
+cursor:pointer;
+transition:0.3s;
+margin-right:10px;
+}
+
+.action-btn:hover{
+transform:translateY(-4px);
+}
+
+.result{
+margin-top:35px;
+padding:28px;
+border-radius:25px;
+background:rgba(87,199,255,0.08);
+display:none;
+line-height:1.9;
+}
+
+.badge{
+display:inline-block;
+padding:8px 16px;
+border-radius:30px;
+margin-bottom:15px;
+font-size:14px;
+font-weight:bold;
+}
+
+.green{
+background:#1e8e3e;
+}
+
+.yellow{
+background:#d29922;
+}
+
+.red{
+background:#c5221f;
+}
+
+/* FUTURE */
+
+.future-box{
+margin-top:40px;
+padding:50px;
+border-radius:35px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(87,199,255,0.08);
+}
+
+.future-box p{
+font-size:20px;
+line-height:2;
+color:#d4d4d4;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px;
+text-align:center;
+font-size:16px;
+color:#9edfff;
+border-top:1px solid rgba(87,199,255,0.08);
+}
+
+/* MOBILE */
+
+@media(max-width:1100px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding-top:140px;
+}
+
+.left,
+.right{
+width:100%;
+}
+
+.left h2{
+font-size:64px;
+}
+
+.line{
+margin:auto;
+margin-top:25px;
+margin-bottom:25px;
+}
+
+.buttons{
+justify-content:center;
+}
+
+.card{
+width:340px;
+height:340px;
+}
+
+.card .emoji{
+font-size:90px;
+}
+
+.card h3{
+font-size:40px;
+}
+
+}
+
+@media(max-width:700px){
+
+.left h2{
+font-size:48px;
+}
+
+.section-title{
+font-size:42px;
+}
+
+section{
+padding:80px 30px;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<header>
-  <h1>💧 TapBot</h1>
-  <p>
-    A student-led initiative for water awareness that highlights water wastage
-    and promotes conservation through simple technical systems.
-  </p>
-</header>
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+<h1>TAPBOT</h1>
+<p>Water Awareness System</p>
+</div>
+
+<a href="#">Bot Ecosystem</a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="left">
+
+<h2>
+SAVE.<br>
+PROTECT.<br>
+<span class="gradient">EVERY DROP.</span>
+</h2>
+
+<div class="line"></div>
+
+<p>
+TapBot is an awareness-driven sustainability platform focused on reducing water wastage, promoting responsible water usage, and encouraging conservation through preventive technology and awareness systems.
+</p>
+
+<div class="buttons">
+
+<button class="btn">
+💧 Water Awareness
+</button>
+
+<button class="btn">
+🚨 Leakage Awareness
+</button>
+
+<button class="btn">
+🌍 Sustainability Education
+</button>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="card">
+
+<div class="emoji">💧</div>
+
+<h3>TAPBOT</h3>
+
+<p>
+Every Drop Matters
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
 
 <section>
 
-  <div class="card">
-    <h2>🌍 Water Awareness: Why It Matters</h2>
-    <p>
-      Water is one of the most essential natural resources, yet it is often wasted
-      due to carelessness and lack of awareness. In many cases, water scarcity is
-      not caused by shortage, but by irresponsible daily usage.
-    </p>
-    <p>
-      Simple habits like leaving taps open for a few minutes can result in the loss
-      of hundreds of litres of clean water. TapBot aims to highlight this issue and
-      encourage people to become more responsible users of water.
-    </p>
-  </div>
+<h2 class="section-title">
+<span class="gradient">About TapBot</span>
+</h2>
 
-  <div class="card">
-    <h2>📊 Water Wastage Data & Facts</h2>
-    <ul>
-      <li>A single tap left open can waste <b>6–10 litres of water per minute</b>.</li>
-      <li>This equals nearly <b>360–600 litres per hour</b>.</li>
-      <li>In schools and public places, thousands of litres are wasted daily due to unattended taps.</li>
-      <li>Studies indicate that <b>30–40% of freshwater</b> is wasted because of leakage and negligence.</li>
-    </ul>
-    <p>
-      These numbers show how small negligence can lead to massive water loss.
-    </p>
-  </div>
+<div class="about-box">
 
-  <div class="card">
-    <h2>🚨 The Problem</h2>
-    <p>
-      In places such as schools, parks, public wash areas, and community water points,
-      taps are often left running unintentionally. This silent wastage reduces water
-      availability, increases water bills, and contributes to long-term environmental stress.
-    </p>
-  </div>
+<p>
+TapBot is a student-developed awareness initiative created to address one of the most overlooked environmental problems-everyday water wastage.
+</p>
 
-  <div class="card">
-    <h2>💡 What is TapBot?</h2>
-    <p>
-      TapBot is a student-developed water awareness initiative that focuses on reducing
-      water wastage through simple technical and mechanical thinking.
-    </p>
-    <p>
-      The project follows an <b>awareness-first approach</b>, demonstrating that innovation
-      does not always require complex or expensive technology.
-    </p>
-  </div>
+<p>
+The project focuses on encouraging responsible water habits through awareness, preventive thinking, and sustainability-oriented innovation. Instead of depending only on complex systems, TapBot demonstrates how small actions and simple technological ideas can collectively save thousands of litres of water.
+</p>
 
-  <div class="card">
-    <h2>🛠️ How TapBot Helps</h2>
-    <ul>
-      <li>Creates awareness about water wastage</li>
-      <li>Encourages responsible water usage</li>
-      <li>Demonstrates a practical solution concept</li>
-      <li>Suitable for schools and public environments</li>
-      <li>Easy to understand and replicate</li>
-    </ul>
-  </div>
+<p>
+TapBot highlights issues such as unattended taps, leakage, negligence in schools and public places, and unnecessary water usage habits that silently contribute to environmental stress.
+</p>
 
-  <div class="card">
-    <h2>🛠️ TapBot Prototype</h2>
-    <p>
-      Below is the prototype/model of TapBot, created to demonstrate how a simple
-      technical system can help reduce water wastage.
-    </p>
+<p>
+The project represents a larger philosophy inside the Bot Ecosystem:
+<b>using awareness-driven technology to solve real-world problems responsibly.</b>
+</p>
 
-    <!-- Replace tapbot.jpg with your actual image file name -->
-    <img src="images/tapbot.jpg" alt="TapBot Prototype">
-  </div>
+</div>
 
-  <div class="card">
-    <h2>🌱 Impact & Purpose</h2>
-    <ul>
-      <li>Promotes water conservation habits</li>
-      <li>Reduces unnecessary water wastage</li>
-      <li>Educates students and communities</li>
-      <li>Supports environmental sustainability</li>
-    </ul>
-    <p>
-      Saving even a few litres per tap each day can result in thousands of litres
-      saved every year.
-    </p>
-  </div>
+</section>
 
-  <div class="card">
-    <h2>🚀 Future Scope</h2>
-    <p>
-      TapBot aims to evolve with improved technical and mechanical designs, possible
-      automation using sensors, real-time awareness systems, and wider implementation
-      in schools and public places.
-    </p>
-  </div>
+<!-- FEATURES -->
 
-  <div class="card">
-    <h2>🙏 Credits & Acknowledgement</h2>
-    <p>
-      TapBot is a student-developed initiative designed and owned by <b>Purv</b>.
-    </p>
-    <p>
-      This project was ideated under the observation and guidance of
-      <b>Kiran Singh Ma’am</b>. I sincerely express my gratitude for her support,
-      mentorship, and encouragement.
-    </p>
-  </div>
+<section>
+
+<h2 class="section-title">
+<span class="gradient">Core Features</span>
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h3>💧 Water Awareness</h3>
+
+<p>
+Creates awareness about unnecessary water wastage and responsible daily usage.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>🚨 Leakage Awareness</h3>
+
+<p>
+Highlights how unattended taps and leaks can waste hundreds of litres every day.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>📊 Water Statistics</h3>
+
+<p>
+Displays practical calculations and awareness data about water conservation impact.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>🌍 Sustainability Education</h3>
+
+<p>
+Encourages environmentally responsible habits and smarter conservation practices.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>🛠 Future Automation</h3>
+
+<p>
+Explores future concepts like smart taps, AI leak detection, and automated conservation systems.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>🏫 School Awareness</h3>
+
+<p>
+Promotes water-saving awareness initiatives in schools and public environments.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CALCULATOR -->
+
+<section>
+
+<h2 class="section-title">
+<span class="gradient">Water Waste Calculator</span>
+</h2>
+
+<div class="calculator">
+
+<input
+type="number"
+id="minutes"
+placeholder="How many minutes was the tap left open?"
+>
+
+<button class="action-btn" onclick="calculateWater()">
+Calculate Water Waste
+</button>
+
+<button class="action-btn" onclick="generateTip()">
+Daily Water Saving Tip
+</button>
+
+<div class="result" id="resultBox">
+
+<div id="riskBadge"></div>
+
+<h2 id="litresText"></h2>
+
+<p id="impactText"></p>
+
+<p id="tipText"></p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FUTURE -->
+
+<section>
+
+<h2 class="section-title">
+<span class="gradient">Future Vision</span>
+</h2>
+
+<div class="future-box">
+
+<p>
+Future versions of TapBot may include AI-based leakage detection systems, smart sensor taps, automated water monitoring dashboards, school conservation tracking systems, camera-assisted water awareness technology, and intelligent sustainability tools designed to reduce water wastage through preventive innovation.
+</p>
+
+</div>
 
 </section>
 
 <footer>
-  <p><b>TapBot – Water Awareness Initiative</b></p>
-  <p>Created by Purv</p>
-  <p>“Every drop saved today secures tomorrow.”</p>
+
+<p><b>TAPBOT • Part of Bot Ecosystem</b></p>
+
+<p>
+Created By Purv
+</p>
+
+<p>
+“Every drop saved today secures tomorrow.”
+</p>
+
 </footer>
 
+<script>
+
+const tips=[
+
+"Turn off taps while brushing your teeth.",
+
+"Fix leaking taps as early as possible.",
+
+"Reuse water whenever possible.",
+
+"Do not leave taps running unnecessarily.",
+
+"Use buckets instead of long showers to save water.",
+
+"Check school and public taps regularly.",
+
+"Small water savings create huge yearly impact."
+
+];
+
+/* CALCULATOR */
+
+function calculateWater(){
+
+let minutes=
+document.getElementById("minutes").value;
+
+let litres=minutes*8;
+
+document.getElementById("resultBox")
+.style.display="block";
+
+document.getElementById("litresText")
+.innerHTML=
+"You wasted approximately "
++ litres +
+" litres of water.";
+
+let badge="";
+let impact="";
+
+if(litres<50){
+
+badge='<div class="badge green">Low Waste</div>';
+
+impact=
+"Even small wastage matters. Responsible habits help conserve water.";
+
+}
+
+else if(litres<200){
+
+badge='<div class="badge yellow">Moderate Waste</div>';
+
+impact=
+"This amount of water could support daily essential activities.";
+
+}
+
+else{
+
+badge='<div class="badge red">High Waste</div>';
+
+impact=
+"Large-scale wastage significantly impacts water sustainability.";
+
+}
+
+document.getElementById("riskBadge")
+.innerHTML=badge;
+
+document.getElementById("impactText")
+.innerHTML=impact;
+
+}
+
+/* RANDOM TIP */
+
+function generateTip(){
+
+let randomTip=
+tips[Math.floor(Math.random()*tips.length)];
+
+document.getElementById("resultBox")
+.style.display="block";
+
+document.getElementById("tipText")
+.innerHTML=
+"<b>Water Saving Tip:</b> "
++ randomTip;
+
+}
+
+</script>
+
 </body>
+
 </html>
